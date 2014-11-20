@@ -1,11 +1,11 @@
 
 //line width
-var i = 1;
 var canvas,ctx;
 var plus,minus;
-var text='';
-var metrics;
-var textWidth;
+var alphabets = ['I','L','M','N','S','U','X','Y','Z'];
+var text;
+var size = 1.0;
+
 function init(){
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
@@ -15,48 +15,70 @@ function init(){
 	minus.addEventListener('click',dec);
 	setText();
 	draw();
-
 }
 
 function draw(){
 	ctx.clearRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "gray";
+	ctx.fillStyle = "#969696";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.lineWidth = 1;
-	ctx.strokeRect(0,0,canvas.width,canvas.height);
-	ctx.font = '100pt Arial';
-	ctx.fillStyle = 'gray';
-	ctx.fillText(text, canvas.width/2-100, canvas.height/2);
-	ctx.lineWidth = i;
-	//this reduces size
-	//ctx.strokeStyle = 'gray';
-	//this increase after 2 plus
-	ctx.strokeStyle = 'black';
-	ctx.strokeText(text, canvas.width/2-100, canvas.height/2);
-	metrics = ctx.measureText(text);
-	textWidth = metrics.width;
-	ctx.lineWidth = 1;
-	ctx.strokeStyle = 'red';
-	ctx.strokeRect(canvas.width/2-100,canvas.height/2-80,textWidth,100);
-	console.log(textWidth);
-	console.log(ctx);
+	// ctx.strokeRect(0,0,canvas.width,canvas.height);
+	var h=0,y=0;
+	for (var i = 0; i< 4; i++) {
+		
+		y = y+h;
+		for (var j = 0; j<text.length; j++) {
+		
+			var x = j*125 +j*(20);			
+
+			h = 200 - (50*i);
+			var w = 125;
+			console.log("x:"+x+"y:"+y+"w:"+w+"h:"+h);
+			drawLetter(x+30,y+ i*20 +10,w,h,text[j],i);
+		};
+		ha = h;
+	};
 }
 
+function drawLetter(x,y,w,h,letter,level){
+
+	var image = new Image();
+	image.addEventListener("load", function() {
+
+				
+		image.width = w;
+		image.height = h;
+		ctx.drawImage(image, x, y, image.width, image.height);
+		console.log("x:"+x+"y:"+y+"w:"+w+"h:"+h);
+		console.log(image.src);
+
+	}, false);
+	var s = ""+size;
+	var str = "../../Resources/JPEG/"+letter+"/"+s.replace('.','_')+".jpg";
+	image.src= str;
+}
+
+
 function setText(){
-	text = '';
-	var randomList = new Array();
+	text = new Array();
 	for(var i=0;i<4;i++){
-		randomList[i] = Math.random()*(122-97)+97;
-		text+=String.fromCharCode(randomList[i]);
-	}
+		var a = Math.floor((Math.random() * 9));
+		text[i] = alphabets[a];
+	};
+	console.log(text);
 }
 
 function inc(){
-	i+=1;
-	draw();
+	if(size<6){
+		size+=0.5;
+		draw();
+	}
+	console.log(size);
 }
+
 function dec(){
-	if(i>1)
-	i-=1;
-	draw();
+	if(size>1){
+		size-=0.5;
+		draw();
+	}
+	console.log(size);
 }
