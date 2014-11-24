@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url("../fonts/l1.woff") format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url("../fonts/l3.woff") format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url("../fonts/l4.woff") format('woff');
+}
+
+body {	
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 6em;
+  text-align: center;
+}
+
+.container {
+	width: 80%;
+}
+
+.row{
+  margin-bottom: 10px;
+}
+
+.box {
+  height: 3.7cm;
+  width: 3.7cm;
+  border: solid;
+  display: inline-block;
+  margin: 15px;
+}
+
+.box1 {
+  margin: 15px 10px;
+}
+
+.box:nth-of-type(2n){
+  border-color: #3498db;
+}
+
+.box:nth-of-type(2n+1){
+  border-color: #9b59b6;
+}
+
+/* Colors */
+
+.blue {
+  color: #3498db;
+}
+
+.purp {
+  color: #9b59b6;
+}
+
+.turq {
+  color: #1abc9c;
+}
+
+.blau {
+  color: #34495e;
+}
+
+.grey {
+  color: #bdc3c7;
+}
+
+.red {
+  color: #e74c3c;
+}
+
+.neph {
+  color: #27ae60;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 1366px){
+  body{
+    zoom:90%;
+  }
+}
