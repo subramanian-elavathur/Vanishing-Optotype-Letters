@@ -20,12 +20,19 @@
 body {	
   font-family: "Lato";
   font-weight: 300;
+  color: #FFFFFF;
   text-align: center;
+  background: #969696;
 }
 
 .head{
   font-size: 4em;
 }
+
+.head1{
+  font-size: 2em;
+}
+
 
 .container {
 	width: 100%;
@@ -37,12 +44,12 @@ body {
 }
 
 .box {
-  height: 3.7cm;
-  width: 3.7cm;
+  height: 5.87cm;
+  width: 5.87cm;
   /*border: solid;*/
   display: inline-block;
-  margin-right: 3.7cm;
-  margin-bottom: 3.7cm;
+  margin-right: 5.87cm;
+  margin-bottom: 5.87cm;
   padding: 5px;
 }
 
